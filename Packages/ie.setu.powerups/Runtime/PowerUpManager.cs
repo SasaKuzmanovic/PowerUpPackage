@@ -7,10 +7,10 @@ using UnityEngine;
 public class PowerUpManager : MonoBehaviour
 {
     public GameObject speed;
-    public GameObject jump;
-    public GameObject invincibility;
-    public GameObject dash;
-    public GameObject shot;
+    //public GameObject jump;
+    //public GameObject invincibility;
+    //public GameObject dash;
+    //public GameObject shot;
 
 
     private void Start()
@@ -18,7 +18,8 @@ public class PowerUpManager : MonoBehaviour
         ////////////////////////////////////////////////////
         // Set items you want active in your game to TRUE
         ////////////////////////////////////////////////////
-        speed.SetActive(false);
+        speed.SetActive(true);
+        Instantiate(speed);
         //jump.SetActive(false);
         //invincibility.SetActive(false);
         //dash.SetActive(false);
