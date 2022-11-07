@@ -1,0 +1,16 @@
+{
+    "name": "PowerUps",
+    "rootNamespace": "",
+    "references": [
+        "GUID:86f73cc48d9f973428c3c40f1c4ceb8a"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
