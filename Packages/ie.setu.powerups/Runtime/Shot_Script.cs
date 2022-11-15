@@ -9,12 +9,12 @@ public class Shot_Script : MonoBehaviour
 
     public bool spawned = false;
 
-    
 
-    //public void instantiateBullet(Transform t_playerPos)
-    //{
-    //    Instantiate(bullet, t_playerPos);
-    //}
+
+    public void instantiateBullet(Transform t_playerPos)
+    {
+        Instantiate(bullet, t_playerPos);
+    }
 
 
     public void SpawnPickup()
