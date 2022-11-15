@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class Shot_Script : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject player;
+    public GameObject bullet;
 
-    // Update is called once per frame
-    void Update()
+    public bool spawned = false;
+
+    
+
+    //public void instantiateBullet(Transform t_playerPos)
+    //{
+    //    Instantiate(bullet, t_playerPos);
+    //}
+
+
+    public void SpawnPickup()
     {
-        
+        if (!spawned)
+            Instantiate(this); spawned = true;
     }
 }

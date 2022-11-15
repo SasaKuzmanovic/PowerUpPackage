@@ -287,9 +287,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 804255369}
-  pickup: {fileID: 0}
-  collided: 0
   speed: 5
+  collided: 0
+  pickup: {fileID: 0}
+  bullet: {fileID: 0}
+  bulleted: 0
 --- !u!212 &804255373
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -372,6 +374,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 804255369}
+    - target: {fileID: 5975308290551328809, guid: f2df9674fa73ac747baac632181360fd, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 8704204877737666126, guid: d3cd30872f1d69d40a7bf2ff6a17f1e3, type: 3}
+    - target: {fileID: 5975308290551328809, guid: f2df9674fa73ac747baac632181360fd, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 804255369}
     - target: {fileID: 5975308290551328814, guid: f2df9674fa73ac747baac632181360fd, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -416,6 +426,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5975308290551328815, guid: f2df9674fa73ac747baac632181360fd, type: 3}
+      propertyPath: shot
+      value: 
+      objectReference: {fileID: 9198081784576061029, guid: c48663f4bbe0cd74bbc38f4ba2abec0f, type: 3}
     - target: {fileID: 5975308290551328815, guid: f2df9674fa73ac747baac632181360fd, type: 3}
       propertyPath: speed
       value: 

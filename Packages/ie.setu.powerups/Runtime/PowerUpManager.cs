@@ -10,7 +10,7 @@ public class PowerUpManager : MonoBehaviour
     //public GameObject jump;
     //public GameObject invincibility;
     //public GameObject dash;
-    //public GameObject shot;
+    public GameObject shot;
 
 
     private void Start()
@@ -20,15 +20,15 @@ public class PowerUpManager : MonoBehaviour
         ////////////////////////////////////////////////////
         speed.SetActive(true);
         Instantiate(speed);
-        //jump.SetActive(false);
-        //invincibility.SetActive(false);
-        //dash.SetActive(false);
-        //shot.SetActive(false);
+        shot.SetActive(true);
+        Instantiate(shot);
     }
 
     private void Update()
     {
+        checkForShotFire();
         checkForSpeedUP();
+        
     }
 
 
@@ -40,35 +40,13 @@ public class PowerUpManager : MonoBehaviour
         }
     }
 
-    //public void checkForAddJump()
-    //{
-    //    if (jump.gameObject.active == true)
-    //    {
-            
-    //    }
-    //}
+    public void checkForShotFire()
+    {
+        if (shot.gameObject.active == true)
+        {
+            shot.GetComponent<Shot_Script>().SpawnPickup();
+        }
+    }
 
-    //public void checkForInvincibility()
-    //{
-    //    if (invincibility.gameObject.active == true)
-    //    {
-            
-    //    }
-    //}
 
-    //public void checkForDash()
-    //{
-    //    if (dash.gameObject.active == true)
-    //    {
-            
-    //    }
-    //}
-
-    //public void checkForShotFire()
-    //{
-    //    if (shot.gameObject.active == true)
-    //    {
-            
-    //    }
-    //}
 }

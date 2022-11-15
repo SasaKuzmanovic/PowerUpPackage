@@ -11,6 +11,10 @@ public class Player : MonoBehaviour
     public bool collided = false;
 
     public GameObject pickup;
+
+
+    public GameObject bullet;
+    public bool bulletCollected = false;
     
 
     // Update is called once per frame
@@ -24,6 +28,12 @@ public class Player : MonoBehaviour
         {
             transform.position += Vector3.left * speed * Time.deltaTime;
         }
+
+
+        //if (bulletCollected && Input.GetKey(KeyCode.Space))
+        //{
+        //    bullet.GetComponent<Shot_Script>().instantiateBullet(player.transform);
+        //}   
 
         if (collided)
         {
@@ -50,6 +60,13 @@ public class Player : MonoBehaviour
             speed = collision.gameObject.GetComponent<Speed_Script>().addSpeedToPlayer(speed);
             collided = true;            
         }
+
+        //if (collision.gameObject.CompareTag("Bullet"))
+        //{
+        //    bullet = collision.gameObject;
+        //    bullet.gameObject.transform.position = new Vector3(3500, 3000, 3000);
+        //    bulletCollected = true;
+        //}
     }
 
 
