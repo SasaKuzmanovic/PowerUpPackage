@@ -30,10 +30,10 @@ public class Player : MonoBehaviour
         }
 
 
-        //if (bulletCollected && Input.GetKey(KeyCode.Space))
-        //{
-        //    bullet.GetComponent<Shot_Script>().instantiateBullet(player.transform);
-        //}   
+        if (bulletCollected && Input.GetKey(KeyCode.Space))
+        {
+            bullet.GetComponent<Shot_Script>().instantiateBullet(player.transform);
+        }
 
         if (collided)
         {
@@ -61,12 +61,12 @@ public class Player : MonoBehaviour
             collided = true;            
         }
 
-        //if (collision.gameObject.CompareTag("Bullet"))
-        //{
-        //    bullet = collision.gameObject;
-        //    bullet.gameObject.transform.position = new Vector3(3500, 3000, 3000);
-        //    bulletCollected = true;
-        //}
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            bullet = collision.gameObject;
+            bullet.gameObject.transform.position = new Vector3(3500, 3000, 3000);
+            bulletCollected = true;
+        }
     }
 
 
