@@ -1,7 +1,7 @@
 {
-	"name": "ie.setu.powerups",
-	"version": "0.5.0",
-	"displayName": "PowerUps",
-	"description": "A Few Powerups to enhance your game",
-	"unity": "2021.3"
+  "name": "ie.setu.powerups",
+  "version": "0.6.0",
+  "displayName": "PowerUps",
+  "description": "A Few Powerups to enhance your game",
+  "unity": "2021.3"
 }
