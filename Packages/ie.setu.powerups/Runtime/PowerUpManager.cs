@@ -7,6 +7,7 @@ using UnityEngine;
 public class PowerUpManager : MonoBehaviour
 {
     public GameObject speed;
+    public Transform position;
     //public GameObject jump;
     //public GameObject invincibility;
     //public GameObject dash;
@@ -19,18 +20,22 @@ public class PowerUpManager : MonoBehaviour
         // Set items you want active in your game to TRUE
         ////////////////////////////////////////////////////
         speed.SetActive(true);
-        Instantiate(speed);
-        shot.SetActive(true);
-        Instantiate(shot);
+        Instantiate(speed, position);
+        //shot.SetActive(true);
+       // Instantiate(shot);
     }
 
     private void Update()
     {
-        checkForShotFire();
+        //checkForShotFire();
         checkForSpeedUP();
         
     }
 
+    public void setTransformPosition(Transform t_transfrom)
+    {
+        position = t_transfrom;
+    }
 
     public void checkForSpeedUP()
     {
