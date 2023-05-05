@@ -74,6 +74,8 @@ public class Player : MonoBehaviour
             Debug.Log("Not invincible");
             this.GetComponent<BoxCollider2D>().enabled = true;
             invincible = false;
+
+            Destroy(t_invincibility);
         }
 
     }
