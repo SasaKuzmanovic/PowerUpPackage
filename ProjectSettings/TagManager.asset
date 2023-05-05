@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - Dash
   - Invincibility
+  - Jumping
   layers:
   - Default
   - TransparentFX
