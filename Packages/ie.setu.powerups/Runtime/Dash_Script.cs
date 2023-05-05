@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Dash_Script : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject player;
+    public Vector2 strength = new Vector2 (5.0f, 0.0f);
+    public bool spawned = false;
 
-    // Update is called once per frame
-    void Update()
+
+
+    public void SpawnPickup()
     {
-        
+        if (!spawned)
+            Instantiate(this); spawned = true;
     }
 }

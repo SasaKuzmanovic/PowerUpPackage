@@ -10,7 +10,7 @@ public class PowerUpManager : MonoBehaviour
     public Transform position;
     //public GameObject jump;
     //public GameObject invincibility;
-    //public GameObject dash;
+    public GameObject dash;
     public GameObject shot;
 
 
@@ -19,16 +19,18 @@ public class PowerUpManager : MonoBehaviour
         ////////////////////////////////////////////////////
         // Set items you want active in your game to TRUE
         ////////////////////////////////////////////////////
-        speed.SetActive(true);
-        Instantiate(speed, position);
+        //speed.SetActive(true);
+        //Instantiate(speed, position);
+        dash.SetActive(true);
+        Instantiate(dash);
         //shot.SetActive(true);
-       // Instantiate(shot);
+        //Instantiate(shot);
     }
 
     private void Update()
     {
-        //checkForShotFire();
-        checkForSpeedUP();
+        checkForShotFire();
+        //checkForSpeedUP();
         
     }
 
@@ -50,6 +52,14 @@ public class PowerUpManager : MonoBehaviour
         if (shot.gameObject.active == true)
         {
             shot.GetComponent<Shot_Script>().SpawnPickup();
+        }
+    }
+
+    public void checkForDash()
+    {
+        if (dash.gameObject.active == true)
+        {
+            dash.GetComponent<Shot_Script>().SpawnPickup();
         }
     }
 

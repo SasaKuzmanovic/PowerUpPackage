@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public Rigidbody2D rb;
     public GameObject player;
     public float speed;
 
@@ -12,6 +13,7 @@ public class Player : MonoBehaviour
 
     public GameObject pickup;
 
+    public GameObject dash;
 
     public GameObject bullet;
     public bool bulletCollected = false;
@@ -50,15 +52,14 @@ public class Player : MonoBehaviour
         }       
     }
 
-
-    public void OnCollisionEnter2D(Collision2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Pickup"))
         {
             pickup = collision.gameObject;
             pickup.gameObject.transform.position = new Vector3(3000, 3000, 3000);
             speed = collision.gameObject.GetComponent<Speed_Script>().addSpeedToPlayer(speed);
-            collided = true;            
+            collided = true;
         }
 
         if (collision.gameObject.CompareTag("Bullet"))
@@ -67,7 +68,16 @@ public class Player : MonoBehaviour
             bullet.gameObject.transform.position = new Vector3(3500, 3000, 3000);
             bulletCollected = true;
         }
+
+        if (collision.gameObject.CompareTag("Dash"))
+        {
+            dash = collision.gameObject;
+            Debug.Log("PULSED");
+            Vector2 strength = new Vector2(100.0f, 0.0f);
+
+            dash.gameObject.transform.position = new Vector3(3500, 3000, 3000);
+            rb.AddForce(Vector2.right * 5.0f, ForceMode2D.Impulse);
+
+        }
     }
-
-
 }
