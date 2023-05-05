@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Rigidbody2D rb;
+    public BoxCollider2D bc;
     public GameObject player;
     public float speed;
 
@@ -17,6 +18,7 @@ public class Player : MonoBehaviour
 
     public GameObject invincibility;
     public bool invincible;
+    public float invincibleTime = 0.0f;
 
     public GameObject bullet;
     public bool bulletCollected = false;
@@ -44,6 +46,11 @@ public class Player : MonoBehaviour
         {
             CallPackage(pickup);
         }
+
+        if (invincible)
+        {
+            InvincibilityPowerUP(invincibility);
+        }
     }
 
     void CallPackage(GameObject t_pickup)
@@ -55,8 +62,19 @@ public class Player : MonoBehaviour
         }       
     }
 
-    void InvincibilityPowerUP()
+    void InvincibilityPowerUP(GameObject t_invincibility)
     {
+        this.GetComponent<BoxCollider2D>().enabled = false;
+        if (invincibleTime < 3.0f)
+        {
+            invincibleTime += Time.deltaTime;
+        }
+        else
+        {
+            Debug.Log("Not invincible");
+            this.GetComponent<BoxCollider2D>().enabled = true;
+            invincible = false;
+        }
 
     }
 
@@ -95,6 +113,7 @@ public class Player : MonoBehaviour
 
             invincibility.gameObject.transform.position = new Vector3(3500, 3000, 3000);
 
+            invincible = true;
             
         }
     }
