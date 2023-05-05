@@ -22,6 +22,9 @@ public class Player : MonoBehaviour
 
     public GameObject bullet;
     public bool bulletCollected = false;
+
+    public GameObject jump;
+
     
 
     // Update is called once per frame
@@ -117,6 +120,18 @@ public class Player : MonoBehaviour
 
             invincible = true;
             
+        }
+
+        if (collision.gameObject.CompareTag("Jumping"))
+        {
+            jump = collision.gameObject;
+            Debug.Log("Jumped");
+
+
+            rb.AddForce(Vector2.up * 10.0f, ForceMode2D.Impulse);
+
+            
+
         }
     }
 }
