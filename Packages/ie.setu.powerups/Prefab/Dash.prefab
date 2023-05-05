@@ -98,8 +98,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e95df304ba117e4a990107cc0a3e968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  strength: {x: 5, y: 0}
   spawned: 0
 --- !u!61 &5677831488267536078
 BoxCollider2D:

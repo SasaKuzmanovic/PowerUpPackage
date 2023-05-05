@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Jump_Script : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public static Jump_Script instance;
 
-    // Update is called once per frame
-    void Update()
+    public float jumpStrength = 5.0f;
+    public bool spawned = false;
+
+    public void SpawnPickup()
     {
-        
+        if (!spawned)
+            Instantiate(this); spawned = true;
     }
 }
