@@ -9,9 +9,9 @@ public class PowerUpManager : MonoBehaviour
     public GameObject speed;
     public Transform position;
     //public GameObject jump;
-    //public GameObject invincibility;
     public GameObject dash;
     public GameObject shot;
+    public GameObject invincibility;
 
 
     private void Start()
@@ -21,8 +21,11 @@ public class PowerUpManager : MonoBehaviour
         ////////////////////////////////////////////////////
         //speed.SetActive(true);
         //Instantiate(speed, position);
-        dash.SetActive(true);
-        Instantiate(dash);
+        //dash.SetActive(true);
+        //Instantiate(dash);
+
+        invincibility.SetActive(true);
+        Instantiate(invincibility);
         //shot.SetActive(true);
         //Instantiate(shot);
     }

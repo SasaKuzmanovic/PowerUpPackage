@@ -15,6 +15,9 @@ public class Player : MonoBehaviour
 
     public GameObject dash;
 
+    public GameObject invincibility;
+    public bool invincible;
+
     public GameObject bullet;
     public bool bulletCollected = false;
     
@@ -52,6 +55,11 @@ public class Player : MonoBehaviour
         }       
     }
 
+    void InvincibilityPowerUP()
+    {
+
+    }
+
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Pickup"))
@@ -78,6 +86,16 @@ public class Player : MonoBehaviour
             dash.gameObject.transform.position = new Vector3(3500, 3000, 3000);
             rb.AddForce(Vector2.right * 5.0f, ForceMode2D.Impulse);
 
+        }
+
+        if (collision.gameObject.CompareTag("Invincibility"))
+        {
+            invincibility = collision.gameObject;
+            Debug.Log("Invincible");
+
+            invincibility.gameObject.transform.position = new Vector3(3500, 3000, 3000);
+
+            
         }
     }
 }
