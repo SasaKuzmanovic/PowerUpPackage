@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -68,7 +69,13 @@ public class Player : MonoBehaviour
         {
             speed = t_pickup.GetComponent<Speed_Script>().DecaySpeedOverTime(speed);
             Debug.Log(speed);
-        }       
+        }
+        else
+        {
+            speed = 5.0f;
+            collided = false;
+            Destroy(t_pickup);
+        }
     }
 
     void SlowdownPackage(GameObject t_pickup)
@@ -77,6 +84,12 @@ public class Player : MonoBehaviour
         {
             speed = t_pickup.GetComponent<Slowdown_Script>().IncreaseSpeedOverTime(speed);
             Debug.Log(speed);
+        }
+        else
+        {
+            udrio = false;
+            speed = 5.0f;
+            Destroy(t_pickup);
         }
     }
 
