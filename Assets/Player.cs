@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -25,7 +26,8 @@ public class Player : MonoBehaviour
 
     public GameObject jump;
 
-    
+    public GameObject slowdown;
+    public bool udrio = false;
 
     // Update is called once per frame
     void Update()
@@ -50,6 +52,11 @@ public class Player : MonoBehaviour
             CallPackage(pickup);
         }
 
+        if (udrio)
+        {
+            SlowdownPackage(slowdown);
+        }
+
         if (invincible)
         {
             InvincibilityPowerUP(invincibility);
@@ -62,7 +69,28 @@ public class Player : MonoBehaviour
         {
             speed = t_pickup.GetComponent<Speed_Script>().DecaySpeedOverTime(speed);
             Debug.Log(speed);
-        }       
+        }
+        else
+        {
+            speed = 5.0f;
+            collided = false;
+            Destroy(t_pickup);
+        }
+    }
+
+    void SlowdownPackage(GameObject t_pickup)
+    {
+        if (speed < 5.0f)
+        {
+            speed = t_pickup.GetComponent<Slowdown_Script>().IncreaseSpeedOverTime(speed);
+            Debug.Log(speed);
+        }
+        else
+        {
+            udrio = false;
+            speed = 5.0f;
+            Destroy(t_pickup);
+        }
     }
 
     void InvincibilityPowerUP(GameObject t_invincibility)
@@ -133,6 +161,15 @@ public class Player : MonoBehaviour
 
             Destroy(jump);
 
+        }
+
+
+        if (collision.gameObject.CompareTag("Slowdown"))
+        {
+            slowdown = collision.gameObject;
+            slowdown.gameObject.transform.position = new Vector3(3000, 3000, 3000);
+            speed = collision.gameObject.GetComponent<Slowdown_Script>().removeSpeedFromPlayer(speed);
+            udrio = true;
         }
     }
 }
