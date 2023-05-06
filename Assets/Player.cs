@@ -126,9 +126,11 @@ public class Player : MonoBehaviour
 
         if (!(time < 3.0f))
         {
-            gameObject.GetComponent<SpriteRenderer>().material.color = 
+            gameObject.GetComponent<SpriteRenderer>().material.color =
                 invisibility.gameObject.GetComponent<Invisibility_Script>().triggerVisibility(this.gameObject.GetComponent<SpriteRenderer>().material.color);
             invisible = false;
+
+            Destroy(invisibility);
         }
     }
 
@@ -197,6 +199,7 @@ public class Player : MonoBehaviour
         {
             invisibility = collision.gameObject;
             Debug.Log("Invisible");
+            invisibility.gameObject.transform.position = new Vector3(3000, 3000, 3000);
 
             gameObject.GetComponent<SpriteRenderer>().material.color = 
                 invisibility.gameObject.GetComponent<Invisibility_Script>().triggerInvisibility(this.gameObject.GetComponent<SpriteRenderer>().material.color);
