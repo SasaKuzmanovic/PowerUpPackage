@@ -149,5 +149,14 @@ public class Player : MonoBehaviour
             Destroy(jump);
 
         }
+
+
+        if (collision.gameObject.CompareTag("Slowdown"))
+        {
+            slowdown = collision.gameObject;
+            slowdown.gameObject.transform.position = new Vector3(3000, 3000, 3000);
+            speed = collision.gameObject.GetComponent<Slowdown_Script>().removeSpeedFromPlayer(speed);
+            udrio = true;
+        }
     }
 }

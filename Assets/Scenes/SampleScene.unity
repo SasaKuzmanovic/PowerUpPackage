@@ -583,6 +583,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6846983967455877047, guid: 777b23df0cfa5324d906c7f981210747, type: 3}
     - target: {fileID: 5975308290551328815, guid: f2df9674fa73ac747baac632181360fd, type: 3}
+      propertyPath: slowdown
+      value: 
+      objectReference: {fileID: 5251961762681570765, guid: 013b847f62d1aa346be69cce58f2c489, type: 3}
+    - target: {fileID: 5975308290551328815, guid: f2df9674fa73ac747baac632181360fd, type: 3}
       propertyPath: invincibility
       value: 
       objectReference: {fileID: 6600645640954540208, guid: b9315cf68d7c68c4e84c5b5648f03228, type: 3}
