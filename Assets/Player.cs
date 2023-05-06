@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     public bool bulletCollected = false;
 
     public GameObject jump;
+    public GameObject DoubleJump;
 
     public GameObject slowdown;
     public bool udrio = false;
@@ -204,6 +205,13 @@ public class Player : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().material.color = 
                 invisibility.gameObject.GetComponent<Invisibility_Script>().triggerInvisibility(this.gameObject.GetComponent<SpriteRenderer>().material.color);
             invisible = true;
+        }
+
+
+        if (collision.gameObject.CompareTag("DoubleJump"))
+        {
+            DoubleJump = collision.gameObject;
+            Debug.Log("Double Jump");
         }
     }
 }
