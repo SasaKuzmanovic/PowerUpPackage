@@ -256,6 +256,10 @@ public class Player : MonoBehaviour
 
             isSlippery = true;
 
+            slippery.gameObject.transform.position = new Vector3(3000, 3000, 3000);
+
+            Destroy(slippery);
+
         }
     }
 }
