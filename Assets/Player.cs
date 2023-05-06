@@ -65,6 +65,11 @@ public class Player : MonoBehaviour
         {
             InvincibilityPowerUP(invincibility);
         }
+
+        if (invisible)
+        {
+            InvisibilityTimer();
+        }
     }
 
     void CallPackage(GameObject t_pickup)
@@ -113,6 +118,18 @@ public class Player : MonoBehaviour
             Destroy(t_invincibility);
         }
 
+    }
+
+    void InvisibilityTimer()
+    {
+        var time = invisibility.gameObject.GetComponent<Invisibility_Script>().timer();
+
+        if (!(time < 3.0f))
+        {
+            gameObject.GetComponent<SpriteRenderer>().material.color = 
+                invisibility.gameObject.GetComponent<Invisibility_Script>().triggerVisibility(this.gameObject.GetComponent<SpriteRenderer>().material.color);
+            invisible = false;
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -180,7 +197,10 @@ public class Player : MonoBehaviour
         {
             invisibility = collision.gameObject;
             Debug.Log("Invisible");
-            
+
+            gameObject.GetComponent<SpriteRenderer>().material.color = 
+                invisibility.gameObject.GetComponent<Invisibility_Script>().triggerInvisibility(this.gameObject.GetComponent<SpriteRenderer>().material.color);
+            invisible = true;
         }
     }
 }
