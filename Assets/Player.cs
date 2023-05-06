@@ -126,7 +126,7 @@ public class Player : MonoBehaviour
     void InvincibilityPowerUP(GameObject t_invincibility)
     {
         this.GetComponent<BoxCollider2D>().enabled = false;
-        if (invincibleTime < 3.0f)
+        if (invincibleTime < 1.0f)
         {
             invincibleTime += Time.deltaTime;
         }

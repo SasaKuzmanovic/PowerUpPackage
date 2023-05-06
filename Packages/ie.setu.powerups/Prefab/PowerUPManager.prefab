@@ -57,6 +57,9 @@ MonoBehaviour:
   jump: {fileID: 7888801971046967198, guid: d5d40eefcae646c47aa7c14df9655878, type: 3}
   slowdown: {fileID: 5251961762681570765, guid: 013b847f62d1aa346be69cce58f2c489, type: 3}
   invisibility: {fileID: 8037891000722341904, guid: 86da80603019b804088b0736bf0838b9, type: 3}
+  DoubleJump: {fileID: 1126690174535573896, guid: ed47cf9763212ca48a14a98598a74e7d, type: 3}
+  RemoveLife: {fileID: 1438542914954139922, guid: 84076c55eb53fda40be7ee30009aaaf4, type: 3}
+  slippery: {fileID: 7097640436147355922, guid: 7f48a4bad5ec08e46ac7e735a164e666, type: 3}
 --- !u!114 &5975308290551328808
 MonoBehaviour:
   m_ObjectHideFlags: 0

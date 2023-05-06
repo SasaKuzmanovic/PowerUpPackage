@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     void Update()
     {
-        transform.position += Vector3.right * 5.0f * Time.deltaTime;
+        transform.position += Vector3.right * 15.0f * Time.deltaTime;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -31,8 +31,8 @@ public class PowerUpManager : MonoBehaviour
         //dash.SetActive(true);
         //Instantiate(dash);
 
-        //invincibility.SetActive(true);
-        //Instantiate(invincibility);
+        invincibility.SetActive(true);
+        Instantiate(invincibility);
 
         //shot.SetActive(true);
         //Instantiate(shot);
@@ -52,8 +52,8 @@ public class PowerUpManager : MonoBehaviour
         //RemoveLife.SetActive(true);
         //Instantiate(RemoveLife);
 
-        slippery.SetActive(true);
-        Instantiate(slippery);
+        //slippery.SetActive(true);
+        //Instantiate(slippery);
     }
 
     private void Update()
