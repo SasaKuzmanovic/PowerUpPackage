@@ -13,6 +13,7 @@ public class PowerUpManager : MonoBehaviour
     public GameObject invincibility;
     public GameObject jump;
     public GameObject slowdown;
+    public GameObject invisibility;
 
 
     private void Start()
@@ -35,8 +36,11 @@ public class PowerUpManager : MonoBehaviour
         //jump.SetActive(true);
         //Instantiate(jump);
 
-        slowdown.SetActive(true);
-        Instantiate(slowdown);
+        //slowdown.SetActive(true);
+        //Instantiate(slowdown);
+
+        invisibility.SetActive(true);
+        Instantiate(invisibility);
     }
 
     private void Update()
