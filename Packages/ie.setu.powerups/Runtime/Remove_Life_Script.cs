@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Codice.Client.Common.Servers.RecentlyUsedServers;
 
 public class Remove_Life_Script : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public int removeHealthBy = 1;
+
+    public bool spawned = false;
+
+    public void removePlayersHealth(ref int t_health)
     {
-        
+        t_health = t_health - removeHealthBy;
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void SpawnPickup()
     {
-        
+        if (!spawned)
+            Instantiate(this); spawned = true;
     }
+
 }

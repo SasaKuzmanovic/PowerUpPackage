@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public GameObject player;
     public float speed;
 
+    public int health = 5;
 
     public bool collided = false;
 
@@ -225,6 +226,9 @@ public class Player : MonoBehaviour
         {
             RemoveLife = collision.gameObject;
             Debug.Log("Remove Life");
+
+            RemoveLife.gameObject.GetComponent<Remove_Life_Script>().removePlayersHealth(ref health);
+
 
         }
     }
