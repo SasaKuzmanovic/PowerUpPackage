@@ -229,7 +229,7 @@ public class Player : MonoBehaviour
 
             RemoveLife.gameObject.GetComponent<Remove_Life_Script>().removePlayersHealth(ref health);
 
-
+            Destroy(RemoveLife);
         }
     }
 }
