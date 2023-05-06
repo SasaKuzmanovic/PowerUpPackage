@@ -29,6 +29,10 @@ public class Player : MonoBehaviour
     public GameObject slowdown;
     public bool udrio = false;
 
+    public GameObject invisibility;
+    public bool invisible;
+    public float invisibleTime = 0.0f;
+
     // Update is called once per frame
     void Update()
     {
@@ -170,6 +174,13 @@ public class Player : MonoBehaviour
             slowdown.gameObject.transform.position = new Vector3(3000, 3000, 3000);
             speed = collision.gameObject.GetComponent<Slowdown_Script>().removeSpeedFromPlayer(speed);
             udrio = true;
+        }
+
+        if (collision.gameObject.CompareTag("Invisibility"))
+        {
+            invisibility = collision.gameObject;
+            Debug.Log("Invisible");
+            
         }
     }
 }
