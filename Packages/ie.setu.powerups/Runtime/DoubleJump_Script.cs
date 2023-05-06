@@ -12,7 +12,16 @@ public class DoubleJump_Script : MonoBehaviour
     public bool spawned = false;
 
 
+    public IEnumerator playerJump(Rigidbody2D t_playerRB)
+    {
+        t_playerRB.AddForce(Vector2.up * firstJump, ForceMode2D.Impulse);
 
+        yield return new WaitForSeconds(0.3f);
+
+        t_playerRB.AddForce(Vector2.up * secondJump, ForceMode2D.Impulse);
+
+        
+    }
 
 
     public void SpawnPickup()

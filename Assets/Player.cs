@@ -212,6 +212,11 @@ public class Player : MonoBehaviour
         {
             DoubleJump = collision.gameObject;
             Debug.Log("Double Jump");
+
+            StartCoroutine(DoubleJump.gameObject.GetComponent<DoubleJump_Script>().playerJump(rb));
+
+            DoubleJump.gameObject.transform.position = new Vector3(3000, 3000, 3000);
+
         }
     }
 }
