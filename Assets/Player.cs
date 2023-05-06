@@ -25,7 +25,8 @@ public class Player : MonoBehaviour
 
     public GameObject jump;
 
-    
+    public GameObject slowdown;
+    public bool udrio = false;
 
     // Update is called once per frame
     void Update()
@@ -50,6 +51,11 @@ public class Player : MonoBehaviour
             CallPackage(pickup);
         }
 
+        if (udrio)
+        {
+            SlowdownPackage(slowdown);
+        }
+
         if (invincible)
         {
             InvincibilityPowerUP(invincibility);
@@ -63,6 +69,15 @@ public class Player : MonoBehaviour
             speed = t_pickup.GetComponent<Speed_Script>().DecaySpeedOverTime(speed);
             Debug.Log(speed);
         }       
+    }
+
+    void SlowdownPackage(GameObject t_pickup)
+    {
+        if (speed < 5.0f)
+        {
+            speed = t_pickup.GetComponent<Slowdown_Script>().IncreaseSpeedOverTime(speed);
+            Debug.Log(speed);
+        }
     }
 
     void InvincibilityPowerUP(GameObject t_invincibility)
