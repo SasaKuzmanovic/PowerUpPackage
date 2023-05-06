@@ -12,6 +12,8 @@ TagManager:
   - Slowdown
   - Invisibility
   - DoubleJump
+  - RemoveLife
+  - Slippery
   layers:
   - Default
   - TransparentFX

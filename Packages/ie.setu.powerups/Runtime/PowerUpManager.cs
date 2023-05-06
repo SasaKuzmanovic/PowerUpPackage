@@ -16,6 +16,7 @@ public class PowerUpManager : MonoBehaviour
     public GameObject invisibility;
     public GameObject DoubleJump;
     public GameObject RemoveLife;
+    public GameObject slippery;
 
 
 
@@ -48,8 +49,11 @@ public class PowerUpManager : MonoBehaviour
         //DoubleJump.SetActive(true);
         //Instantiate(DoubleJump);
 
-        RemoveLife.SetActive(true);
-        Instantiate(RemoveLife);
+        //RemoveLife.SetActive(true);
+        //Instantiate(RemoveLife);
+
+        slippery.SetActive(true);
+        Instantiate(slippery);
     }
 
     private void Update()

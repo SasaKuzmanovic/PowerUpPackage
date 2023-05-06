@@ -37,6 +37,10 @@ public class Player : MonoBehaviour
 
     public GameObject RemoveLife;
 
+    public GameObject slippery;
+    public float slipStrength = 3.0f;
+    public bool isSlippery = false;
+
     // Update is called once per frame
     void Update()
     {
@@ -44,9 +48,22 @@ public class Player : MonoBehaviour
         {
             transform.position += Vector3.right * speed * Time.deltaTime;
         }
+
+        if (isSlippery && Input.GetKeyUp(KeyCode.D))
+        {
+            Debug.Log("SLIDE RIGHT");
+            rb.AddForce(Vector2.right * slipStrength, ForceMode2D.Impulse);
+        }
+
         if (Input.GetKey(KeyCode.A))
         {
-            transform.position += Vector3.left * speed * Time.deltaTime;
+            transform.position += Vector3.left * speed * Time.deltaTime;      
+        }
+
+        if (isSlippery && Input.GetKeyUp(KeyCode.A))
+        {
+            Debug.Log("SLIDE LEFT");
+            rb.AddForce(-Vector2.right * slipStrength, ForceMode2D.Impulse);
         }
 
 
@@ -230,6 +247,19 @@ public class Player : MonoBehaviour
             RemoveLife.gameObject.GetComponent<Remove_Life_Script>().removePlayersHealth(ref health);
 
             Destroy(RemoveLife);
+        }
+
+        if (collision.gameObject.CompareTag("Slippery"))
+        {
+            slippery = collision.gameObject;
+            Debug.Log("Slippery");
+
+            isSlippery = true;
+
+            slippery.gameObject.transform.position = new Vector3(3000, 3000, 3000);
+
+            Destroy(slippery);
+
         }
     }
 }
