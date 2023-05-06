@@ -37,6 +37,8 @@ public class Player : MonoBehaviour
 
     public GameObject RemoveLife;
 
+    public GameObject slippery;
+
     // Update is called once per frame
     void Update()
     {
@@ -230,6 +232,13 @@ public class Player : MonoBehaviour
             RemoveLife.gameObject.GetComponent<Remove_Life_Script>().removePlayersHealth(ref health);
 
             Destroy(RemoveLife);
+        }
+
+        if (collision.gameObject.CompareTag("Slippery"))
+        {
+            slippery = collision.gameObject;
+            Debug.Log("Slippery");
+
         }
     }
 }
