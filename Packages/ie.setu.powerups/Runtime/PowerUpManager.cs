@@ -14,6 +14,7 @@ public class PowerUpManager : MonoBehaviour
     public GameObject jump;
     public GameObject slowdown;
     public GameObject invisibility;
+    public GameObject DoubleJump;
 
 
     private void Start()
@@ -39,8 +40,11 @@ public class PowerUpManager : MonoBehaviour
         //slowdown.SetActive(true);
         //Instantiate(slowdown);
 
-        invisibility.SetActive(true);
-        Instantiate(invisibility);
+        //invisibility.SetActive(true);
+        //Instantiate(invisibility);
+
+        DoubleJump.SetActive(true);
+        Instantiate(DoubleJump);
     }
 
     private void Update()
@@ -100,6 +104,22 @@ public class PowerUpManager : MonoBehaviour
         if (slowdown.gameObject.active == true)
         {
             slowdown.GetComponent<Slowdown_Script>().SpawnPickup();
+        }
+    }
+
+    public void checkForInvisibility()
+    {
+        if (invisibility.gameObject.active == true)
+        {
+            invisibility.GetComponent<Slowdown_Script>().SpawnPickup();
+        }
+    }
+
+    public void checkForDoubleJump()
+    {
+        if (DoubleJump.gameObject.active == true)
+        {
+            DoubleJump.GetComponent<Slowdown_Script>().SpawnPickup();
         }
     }
 
