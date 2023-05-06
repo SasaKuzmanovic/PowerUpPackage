@@ -20,7 +20,7 @@ public class DoubleJump_Script : MonoBehaviour
 
         t_playerRB.AddForce(Vector2.up * secondJump, ForceMode2D.Impulse);
 
-        
+        Destroy(this.gameObject);
     }
 
 
