@@ -34,6 +34,8 @@ public class Player : MonoBehaviour
     public bool invisible;
     public float invisibleTime = 0.0f;
 
+    public GameObject RemoveLife;
+
     // Update is called once per frame
     void Update()
     {
@@ -216,6 +218,13 @@ public class Player : MonoBehaviour
             StartCoroutine(DoubleJump.gameObject.GetComponent<DoubleJump_Script>().playerJump(rb));
 
             DoubleJump.gameObject.transform.position = new Vector3(3000, 3000, 3000);
+
+        }
+
+        if (collision.gameObject.CompareTag("RemoveLife"))
+        {
+            RemoveLife = collision.gameObject;
+            Debug.Log("Remove Life");
 
         }
     }
