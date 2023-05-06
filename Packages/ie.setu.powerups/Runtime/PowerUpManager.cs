@@ -12,6 +12,7 @@ public class PowerUpManager : MonoBehaviour
     public GameObject shot;
     public GameObject invincibility;
     public GameObject jump;
+    public GameObject slowdown;
 
 
     private void Start()
@@ -31,8 +32,11 @@ public class PowerUpManager : MonoBehaviour
         //shot.SetActive(true);
         //Instantiate(shot);
 
-        jump.SetActive(true);
-        Instantiate(jump);
+        //jump.SetActive(true);
+        //Instantiate(jump);
+
+        slowdown.SetActive(true);
+        Instantiate(slowdown);
     }
 
     private void Update()
@@ -84,6 +88,14 @@ public class PowerUpManager : MonoBehaviour
         if (jump.gameObject.active == true)
         {
             jump.GetComponent<Jump_Script>().SpawnPickup();
+        }
+    }
+
+    public void checkForSlowdown()
+    {
+        if (slowdown.gameObject.active == true)
+        {
+            slowdown.GetComponent<Slowdown_Script>().SpawnPickup();
         }
     }
 
