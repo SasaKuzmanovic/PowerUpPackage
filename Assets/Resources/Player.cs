@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static Player instance;
+
+
     public Rigidbody2D rb;
     public BoxCollider2D bc;
     public GameObject player;
@@ -30,8 +33,8 @@ public class Player : MonoBehaviour
     public GameObject jump;
     public float jumpForce = 10.0f;
     public bool canJump = false;
+
     public GameObject DoubleJump;
-    
 
     public GameObject slowdown;
     public bool udrio = false;
@@ -208,8 +211,7 @@ public class Player : MonoBehaviour
 
             invincibility.gameObject.transform.position = new Vector3(3500, 3000, 3000);
 
-            invincible = true;
-            
+            invincible = true;      
         }
 
         if (collision.gameObject.CompareTag("Jumping"))
