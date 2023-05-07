@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     public GameObject pickup;
 
     public GameObject dash;
+    public float dashForce = 5.0f;
+    public bool canDash = false;
 
     public GameObject invincibility;
     public bool invincible;
@@ -26,7 +28,10 @@ public class Player : MonoBehaviour
     public bool bulletCollected = false;
 
     public GameObject jump;
+    public float jumpForce = 10.0f;
+    public bool canJump = false;
     public GameObject DoubleJump;
+    
 
     public GameObject slowdown;
     public bool udrio = false;
@@ -70,6 +75,20 @@ public class Player : MonoBehaviour
         if (bulletCollected && Input.GetKey(KeyCode.Space))
         {
             bullet.GetComponent<Shot_Script>().instantiateBullet(player.transform);
+        }
+
+        if (canJump && Input.GetKeyUp(KeyCode.Space))
+        {
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            Destroy(jump);
+            canJump = false;
+        }
+
+        if (canDash && Input.GetKeyUp(KeyCode.Space))
+        {
+            rb.AddForce(Vector2.right * dashForce, ForceMode2D.Impulse);
+            Destroy(dash);
+            canDash = false;
         }
 
         if (collided)
@@ -176,11 +195,10 @@ public class Player : MonoBehaviour
         {
             dash = collision.gameObject;
             Debug.Log("PULSED");
-            Vector2 strength = new Vector2(100.0f, 0.0f);
+
+            canDash = true;
 
             dash.gameObject.transform.position = new Vector3(3500, 3000, 3000);
-            rb.AddForce(Vector2.right * 5.0f, ForceMode2D.Impulse);
-
         }
 
         if (collision.gameObject.CompareTag("Invincibility"))
@@ -199,12 +217,7 @@ public class Player : MonoBehaviour
             jump = collision.gameObject;
             Debug.Log("Jumped");
             jump.gameObject.transform.position = new Vector3(3500, 3000, 3000);
-
-
-            rb.AddForce(Vector2.up * 10.0f, ForceMode2D.Impulse);
-
-            Destroy(jump);
-
+            canJump = true;
         }
 
 
